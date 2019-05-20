@@ -1,5 +1,5 @@
 Package: pkgfiles
-Title: What the Package Does (One Line, Title Case)
+Title: Statistics and Tools for Files in Your R Project
 Version: 0.0.0.9000
 Date: 2019-05-20
 Authors@R: 
@@ -8,7 +8,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "krlmlr+r@mailbox.org",
            comment = c(ORCID = "0000-0002-1416-3412"))
-Description: What the package does (one paragraph).
+Description: Classifies files in an R package project, and provides tools for
+    iterating over classes of files.
 License: GPL-3
 URL: https://github.com/krlmlr/pkgfiles,
     http://krlmlr.github.io/pkgfiles

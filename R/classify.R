@@ -1,3 +1,42 @@
+file_name_anywhere <- function(name) {
+  if (length(name) > 1) {
+    name <- or(name)
+  }
+
+  rex(
+    or(start, "/"),
+
+    name,
+
+    end
+  )
+}
+
+file_name <- function(name) {
+  if (length(name) > 1) {
+    name <- or(name)
+  }
+
+  rex(
+    start,
+
+    name,
+
+    end
+  )
+}
+
+file_dir <- function(dir) {
+  rex(
+    start,
+
+    dir,
+
+    "/",
+    one_or_more(none_of("/"))
+  )
+}
+
 file_class <- function(dir, ext) {
   rex(
     start,
@@ -15,9 +54,39 @@ file_class <- function(dir, ext) {
 }
 
 classification <- tribble(
-  ~class, ~regex,
-  "R",    file_class("R", "[rR]"),
-  "man",  file_class("man", "Rd"),
+  ~class,               ~regex,                                ~desc,
+  "R",                  file_class("R", "[rR]"),               "R source files",
+  "R/unix",             file_class("R/unix", "[rR]"),          "R source files (Unix only)",
+  "R/windows",          file_class("R/windows", "[rR]"),       "R source files (Windows only)",
+  "DESCRIPTION",        file_name("DESCRIPTION"),              "DESCRIPTION file",
+  "Rproj",              file_name(regex(".*[.]Rproj")),        "RStudio project file",
+  "man",                file_class("man", "Rd"),               "Documentation files",
+  "man/unix",           file_class("man/unix", "Rd"),          "Documentation files (Unix only)",
+  "man/windows",        file_class("man/windows", "Rd"),       "Documentation files (Windows only)",
+  "vignettes/text/Rmd", file_class("vignettes", "Rmd"),        "Vignette files (Rmd sources)",
+  "vignettes/text/Rnw", file_class("vignettes", "Rnw"),        "Vignette files (Rnw sources)",
+  "vignettes/data",     file_dir("vignettes"),                 "Vignette files (unknown/data)",
+  "tests/src/other",    file_class("tests", "[rR]"),           "Test files (code, other)",
+  "tests/src/testthat", file_class("tests/testthat", "[rR]"),  "Test files (code, testthat files)",
+  "tests/data",         file_dir("tests"),                     "Test files (data)",
+  "NAMESPACE",          file_name("NAMESPACE"),                "NAMESPACE file",
+  "data",               file_dir("data"),                      "Data",
+  "src/code/c",         file_class("src", "c"),                "Compiled code (C source)",
+  "src/code/cpp",       file_class("src", "cpp"),              "Compiled code (C++ source)",
+  "src/code/h",         file_class("src", "h"),                "Compiled code (C/C++ header)",
+  "src/data",           file_dir("src"),                       "Compiled code (unknown/data)",
+  "inst",               file_dir("inst"),                      "Installed files",
+  "exec",               file_dir("exec"),                      "Executable scripts",
+  "po",                 file_dir("po"),                        "Translation",
+  "tools",              file_dir("tools"),                     "Auxiliary files for configuration",
+  "ci",                 file_name(c(".travis.yml", "appveyor.yml", "tic.R")), "CI configuration",
+  "README",             file_name(c("README.md", "README.Rmd")), "README",
+  "Rbuildignore",       file_name(".Rbuildignore"),            "Build-ignore configuration",
+  "gitignore",          file_name_anywhere(".gitignore"),      "Git-ignore configuration",
+  ".Rhistory",          file_name(".Rhistory"),                "R history file",
+  ".git",               file_dir(".git"),                      "Git internal files",
+  ".svn",               file_dir(".svn"),                      "SVN internal files",
+  ".Rproj.user",        file_dir(".Rproj.user"),               "RStudio internal files",
 )
 
 class_from_path <- function(x) {
@@ -27,7 +96,7 @@ class_from_path <- function(x) {
 class_from <- function(x, i) {
   ret <- rep_along(x, NA_character_)
 
-  if (i > length(classification)) {
+  if (i > NROW(classification)) {
     return(ret)
   }
 

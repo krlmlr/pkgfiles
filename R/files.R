@@ -9,12 +9,12 @@ pf_get <- function() {
 
   files_abs <- fs::dir_ls(proj, all = TRUE, recurse = TRUE, type = "file")
   files_rel <- fs::path_rel(files_abs, proj)
-  files <- fs::file_info(files_rel)
 
-  pf_classify(files)
+  pf_classify(files_rel)
 }
 
-pf_classify <- function(files) {
+pf_classify <- function(files_rel) {
+  files <- fs::file_info(files_rel)
   files[["class"]] <- class_from_path(files[["path"]])
 
   new_pkgfiles(files)

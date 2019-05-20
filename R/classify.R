@@ -1,6 +1,6 @@
 file_name_anywhere <- function(name) {
   if (length(name) > 1) {
-    name <- or(name)
+    name <- rex(or(name))
   }
 
   rex(
@@ -14,7 +14,7 @@ file_name_anywhere <- function(name) {
 
 file_name <- function(name) {
   if (length(name) > 1) {
-    name <- or(name)
+    name <- rex(or(name))
   }
 
   rex(

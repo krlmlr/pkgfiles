@@ -16,9 +16,10 @@ URL: https://github.com/krlmlr/pkgfiles,
 BugReports: https://github.com/krlmlr/pkgfiles/issues
 Imports: 
     fs,
+    rex,
+    rlang,
     tibble,
-    usethis,
-    rlang
+    usethis
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

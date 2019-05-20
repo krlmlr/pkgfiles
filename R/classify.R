@@ -1,5 +1,17 @@
 file_class <- function(dir, ext) {
-  paste0("^", dir, "/[^/]*[.]", ext, "$")
+  rex(
+    start,
+
+    dir,
+
+    "/",
+    one_or_more(none_of("/")),
+    ".",
+
+    regex(ext),
+
+    end
+  )
 }
 
 classification <- tribble(

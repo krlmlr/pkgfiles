@@ -5,8 +5,14 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.org/krlmlr/pkgfiles.svg?branch=master)](https://travis-ci.org/krlmlr/pkgfiles)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/krlmlr/pkgfiles?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/pkgfiles)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/pkgfiles)](https://cran.r-project.org/package=pkgfiles)
 <!-- badges: end -->
 
 The goal of pkgfiles is to enumerate and classify all files in an R
@@ -44,12 +50,13 @@ pf_get()
 #> ●   1 RStudio project
 #> ●   1 Documentation
 #> ●   1 NAMESPACE
+#> ●   3 CI configuration
 #> ●   2 README
 #> ●   1 Build-ignore configuration
 #> ●   1 Git-ignore configuration
 #> ●   1 R history
-#> ● 109 Git internal
-#> ●  57 RStudio internal
+#> ● 136 Git internal
+#> ●  60 RStudio internal
 ```
 
 Under the hood, the returned object is a tibble that contains the return
@@ -57,10 +64,10 @@ from a `fs::dir_info()` call augmented by a `class` column:
 
 ``` r
 tibble::as_tibble(pf_get())
-#> # A tibble: 180 x 19
+#> # A tibble: 213 x 19
 #>    path       type     size permissions modification_time   user  group
 #>    <fs::path> <fct> <fs::b> <fs::perms> <dttm>              <chr> <chr>
-#>  1 .Rbuildig… file       48 rw-rw-r--   2019-05-20 15:56:25 kiri… kiri…
+#>  1 .Rbuildig… file       89 rw-rw-r--   2019-05-20 16:06:14 kiri… kiri…
 #>  2 .Rhistory  file    3.55K rw-rw-r--   2019-05-20 16:03:43 kiri… kiri…
 #>  3 .Rproj.us… file        8 rw-rw-r--   2019-05-20 11:29:47 kiri… kiri…
 #>  4 .Rproj.us… file       23 rw-rw-r--   2019-05-20 11:29:47 kiri… kiri…
@@ -70,7 +77,7 @@ tibble::as_tibble(pf_get())
 #>  8 .Rproj.us… file      478 rwxrwxr-x   2019-05-20 11:29:47 kiri… kiri…
 #>  9 .Rproj.us… file      896 rwxrwxr-x   2019-05-20 11:29:47 kiri… kiri…
 #> 10 .Rproj.us… file    3.25K rwxrwxr-x   2019-05-20 11:29:47 kiri… kiri…
-#> # … with 170 more rows, and 12 more variables: device_id <dbl>,
+#> # … with 203 more rows, and 12 more variables: device_id <dbl>,
 #> #   hard_links <dbl>, special_device_id <dbl>, inode <dbl>,
 #> #   block_size <dbl>, blocks <dbl>, flags <int>, generation <dbl>,
 #> #   access_time <dttm>, change_time <dttm>, birth_time <dttm>, class <chr>

@@ -17,7 +17,10 @@ knitr::opts_chunk$set(
 # pkgfiles
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/krlmlr/pkgfiles.svg?branch=master)](https://travis-ci.org/krlmlr/pkgfiles)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/krlmlr/pkgfiles?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/pkgfiles)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/pkgfiles)](https://cran.r-project.org/package=pkgfiles)
 <!-- badges: end -->
 
 The goal of pkgfiles is to enumerate and classify all files in an R package project. This is mostly useful for other packages that iterate over all files of a specific kind in an R package.

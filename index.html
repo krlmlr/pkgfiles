@@ -105,24 +105,24 @@
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; ●  2 README</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; ●  1 Build-ignore configuration</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; ●  1 Git-ignore configuration</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; ● 26 Git internal</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; ● 13 Other: docs/.git/FETCH_HEAD, docs/.git/HEAD, docs/.git/config, docs/.git/description, docs/.git/hooks/README.sample, …</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; ● 32 Git internal</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; ● 38 Other: docs/.git/FETCH_HEAD, docs/.git/HEAD, docs/.git/config, docs/.git/description, docs/.git/hooks/README.sample, …</span></a></code></pre></div>
 <p>Under the hood, the returned object is a tibble that contains the return from a <code><a href="http://fs.r-lib.org/reference/dir_ls.html">fs::dir_info()</a></code> call augmented by a <code>class</code> column:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span>(<span class="kw"><a href="reference/pf_get.html">pf_get</a></span>())</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 55 x 19</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 86 x 19</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;    path       type     size permissions modification_time   user  group</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;    &lt;fs::path&gt; &lt;fct&gt; &lt;fs::b&gt; &lt;fs::perms&gt; &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  1 .Rbuildig… file       89 rw-rw-r--   2019-05-20 14:20:59 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  2 .git/HEAD  file       41 rw-rw-r--   2019-05-20 14:20:59 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  3 .git/conf… file      273 rw-rw-r--   2019-05-20 14:20:59 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  4 .git/desc… file       73 rw-rw-r--   2019-05-20 14:20:58 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  5 .git/hook… file      478 rwxrwxr-x   2019-05-20 14:20:58 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  6 .git/hook… file      896 rwxrwxr-x   2019-05-20 14:20:58 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  7 .git/hook… file    3.25K rwxrwxr-x   2019-05-20 14:20:58 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  8 .git/hook… file      189 rwxrwxr-x   2019-05-20 14:20:58 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  9 .git/hook… file      424 rwxrwxr-x   2019-05-20 14:20:58 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 10 .git/hook… file     1.6K rwxrwxr-x   2019-05-20 14:20:58 trav… trav…</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; # … with 45 more rows, and 12 more variables: device_id &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  1 .Rbuildig… file       89 rw-rw-r--   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  2 .git/HEAD  file       41 rw-rw-r--   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  3 .git/ORIG… file       41 rw-rw-r--   2019-05-20 14:25:32 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  4 .git/conf… file      273 rw-rw-r--   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  5 .git/desc… file       73 rw-rw-r--   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  6 .git/hook… file      478 rwxrwxr-x   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  7 .git/hook… file      896 rwxrwxr-x   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  8 .git/hook… file    3.25K rwxrwxr-x   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  9 .git/hook… file      189 rwxrwxr-x   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 10 .git/hook… file      424 rwxrwxr-x   2019-05-20 14:24:56 trav… trav…</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; # … with 76 more rows, and 12 more variables: device_id &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; #   hard_links &lt;dbl&gt;, special_device_id &lt;dbl&gt;, inode &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; #   block_size &lt;dbl&gt;, blocks &lt;dbl&gt;, flags &lt;int&gt;, generation &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; #   access_time &lt;dttm&gt;, change_time &lt;dttm&gt;, birth_time &lt;dttm&gt;, class &lt;chr&gt;</span></a></code></pre></div>
@@ -172,7 +172,10 @@
       <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://travis-ci.org/krlmlr/pkgfiles"><img src="https://travis-ci.org/krlmlr/pkgfiles.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://ci.appveyor.com/project/krlmlr/pkgfiles"><img src="https://ci.appveyor.com/api/projects/status/github/krlmlr/pkgfiles?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://cran.r-project.org/package=pkgfiles"><img src="https://www.r-pkg.org/badges/version/pkgfiles" alt="CRAN status"></a></li>
 </ul>
 </div>
 </div>

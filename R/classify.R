@@ -2,9 +2,10 @@ file_class <- function(dir, ext) {
   paste0("^", dir, "/[^/]*[.]", ext, "$")
 }
 
-classification <- c(
-  R = file_class("R", "[rR]"),
-  man = file_class("man", "Rd")
+classification <- tribble(
+  ~class, ~regex,
+  "R",    file_class("R", "[rR]"),
+  "man",  file_class("man", "Rd"),
 )
 
 class_from_path <- function(x) {
@@ -18,8 +19,8 @@ class_from <- function(x, i) {
     return(ret)
   }
 
-  this_class <- grepl(classification[[i]], x, perl = TRUE)
-  ret[this_class] <- names(classification)[[i]]
+  this_class <- grepl(classification[["regex"]][[i]], x, perl = TRUE)
+  ret[this_class] <- classification[["class"]][[i]]
   ret[!this_class] <- class_from(x[!this_class], i + 1L)
   ret
 }

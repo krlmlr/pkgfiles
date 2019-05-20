@@ -1,6 +1,6 @@
 Package: pkgfiles
 Title: Statistics and Tools for Files in Your R Project
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Date: 2019-05-20
 Authors@R: 
     person(given = "Kirill",

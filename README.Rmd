@@ -1,0 +1,59 @@
+---
+output: 
+  github_document:
+    html_preview: false
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# pkgfiles
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+The goal of pkgfiles is to enumerate and classify all files in an R package project. This is mostly useful for other packages that iterate over all files of a specific kind in an R package.
+
+## Installation
+
+Once released, you can install the released version of pkgfiles from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("pkgfiles")
+```
+
+For now, install from GitHub with
+
+``` r
+# install.packages("devtools")
+devtools::install_github("krlmlr/pkgfiles")
+```
+
+## Example
+
+The `pf_get()` function enumerates and classifies all files in the current project.
+
+```{r example}
+library(pkgfiles)
+pf_get()
+```
+
+Under the hood, the returned object is a tibble that contains the return from a `fs::dir_info()` call augmented by a `class` column:
+
+```{r}
+tibble::as_tibble(pf_get())
+```
+
+The classification is based on regular expressions for the project-relative path of the files. This list is extensible but the existing entries should rarely change.
+
+```{r}
+pkgfiles:::classification
+```

@@ -1,2 +1,3 @@
 ^pkgfiles\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$

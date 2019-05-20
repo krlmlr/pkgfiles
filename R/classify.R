@@ -59,6 +59,7 @@ classification <- tribble(
   "R/unix",             file_class("R/unix", "[rR]"),                         "R source (Unix only)",
   "R/windows",          file_class("R/windows", "[rR]"),                      "R source (Windows only)",
   "DESCRIPTION",        file_name("DESCRIPTION"),                             "DESCRIPTION",
+  "NEWS",               file_name(c("NEWS", "NEWS.md", "ChangeLog")),         "NEWS",
   "Rproj",              file_name(regex(".*[.]Rproj")),                       "RStudio project",
   "man",                file_class("man", "Rd"),                              "Documentation",
   "man/unix",           file_class("man/unix", "Rd"),                         "Documentation (Unix only)",
